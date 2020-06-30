@@ -88,10 +88,12 @@ class optimum//最优解
 	optimum(int n);//构造函数，用于在对象中生成以上两个表格，参数为关卡序号1-5
 	void movebyoptimum(void)const;//主体函数，根据预先录入的最优解移动棋子，至通关（不包含初始化）
 	//void optimumsave(void)const;//预备函数，生成并保存一份最优解副本，用于实现提示功能（暂不使用）
-	friend void movewhichwhere(name n,direction d);//友元函数，通过传入的name和direction分析调用哪个move函数（输入选择的部分也可以考虑利用本函数，避免重复使用if-else和switch-case）
+	friend void movewhichwhere(name n,direction d);//友元函数，通过传入的name和direction分析调用哪个move函数（输入选择的部分也可以考虑利用本函数，借此可能可以避免重复使用if-else和switch-case）
 };
 
 optimum::optimum(int n){
+	nametable.clear();
+	dirtable.clear();
 	switch (n){
 		case 1:
 			step = 48;
